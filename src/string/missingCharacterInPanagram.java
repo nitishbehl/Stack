@@ -1,0 +1,42 @@
+package string;
+
+import java.util.ArrayList;
+
+public class missingCharacterInPanagram {
+    private static ArrayList<Character> missingChars(
+            String str, int strLength) {
+        int MAX = 26;
+        boolean[] present = new boolean[MAX];
+        ArrayList<Character> charsList = new ArrayList<>();
+        for (int i = 0; i < strLength; i++) {
+            if ('A' <= str.charAt(i) && str.charAt(i) <= 'Z')
+                present[str.charAt(i) - 'A'] = true;
+            else if ('a' <= str.charAt(i) && str.charAt(i) <= 'z')
+                present[str.charAt(i) - 'a'] = true;
+        }
+        // Store missing characters in alphabetic order.
+        for (int i = 0; i < MAX; i++) {
+            if (present[i] == false) {
+                charsList.add((char) (i + 'a'));
+            }
+
+        }
+        return charsList;
+
+    }
+
+    public static void main(String[] args) {
+        String str = "The quick brown fox jumps " +
+                "over the dog";
+
+        ArrayList<Character> missing = missingCharacterInPanagram.missingChars(
+                str, str.length());
+
+        if (missing.size() >= 1) {
+            for (Character character : missing) {
+                System.out.print(character);
+            }
+        }
+    }
+
+}
