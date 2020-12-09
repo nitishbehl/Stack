@@ -1,7 +1,5 @@
 package stack;
 
-import java.lang.System;
-
 import java.util.Stack;
 
 public class baseballGame {
@@ -33,12 +31,12 @@ public class baseballGame {
     }
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
-//       stack.push( 5);
-//        stack.push( 2);
-//        stack.push( 'C');
-//        stack.push( 'D');
-//        stack.push( '+');
+        Stack<Character> stack = new Stack<>();
+        stack.push('5');
+        stack.push('2');
+        stack.push('C');
+        stack.push('D');
+        stack.push('+');
 
         System.out.println(stack);
 

@@ -19,7 +19,5 @@ public class nextGreaterElement {
         return result;
 
     }
-
-
 }
 
