@@ -1,11 +1,11 @@
 package linkedList;
 
-public class linkedList {
+public class LinkedList {
     Node head; // head of the list
 
     // to create a list with tree node.
     public static void main(String[] args) {
-        linkedList list = new linkedList();
+        LinkedList list = new LinkedList();
         list.head = new Node(1);
         Node second = new Node(2);
         Node third = new Node(3);
