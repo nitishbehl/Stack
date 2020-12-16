@@ -29,6 +29,7 @@ public class MinStack {
         return top == 0;
     }
 
+
     boolean isFull() {
         return top == capacity;
     }
