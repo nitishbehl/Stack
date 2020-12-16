@@ -1,23 +1,61 @@
 package stack;
 
-public class nextGreaterElement {
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        int[] result = new int[nums1.length];
-        for (int i = 0; i < nums1.length; i++) {
-            int j = 0;
-            while (nums2[j] != nums1[i]) {
-                j++;
-                for (int k = j; k < nums2.length; k++) {
-                    if (nums2[k] > nums1[i]) {
-                        result[i] = nums2[k];
-                        break;
-                    }
-                }
-                result[i] = -1;
-            }
-        }
-        return result;
+import java.util.Stack;
 
+public class NextGreaterElement {
+    int top;
+    int[] nodes;
+    int capacity = 10;
+
+
+    NextGreaterElement() {
+        top = 0;
+        nodes = new int[capacity];
+    }
+
+    public static void nge(int[] array) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(array[0]);
+        for (int i = 1; i < array.length; i++) {
+            if (stack.isEmpty()) {
+                stack.push(array[i]);
+            }
+            while (!stack.isEmpty() && stack.peek() < array[i]) {
+                System.out.println(stack.peek() + " -> " + array[i]);
+                stack.pop();
+            }
+            stack.push(array[i]);
+        }
+        while (!stack.empty()) {
+            System.out.println(stack.pop() + " -> " + -1);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {11, 13, 21, 3};
+        nge(arr);
+    }
+
+    boolean isEmpty() {
+        return top == 0;
+    }
+
+    boolean isFull() {
+        return top == capacity;
+    }
+
+    void push(int data) {
+        if (isFull()) {
+            return;
+        }
+        nodes[top++] = data;
+    }
+
+    int pop() {
+        if (isEmpty()) {
+            return -1;
+        } else {
+            return nodes[--top];
+        }
     }
 }
-
